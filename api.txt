@@ -1,0 +1,2 @@
+https://api.instagram.com/oauth/authorize/?client_id=9157211c91a7452193485a865e613312&redirect_uri=https://instagramtoken.com/&response_type=token
+access_token: 1441777407.9157211.36ec49db6d5d46f9b59ab5c856609636
