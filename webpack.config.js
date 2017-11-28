@@ -64,18 +64,18 @@ module.exports = {
      
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'home',
+            title: 'index',
             hash: true,
             excludeChunks: ['dashboard'], 
             template: './src/index.html'
         }),
         new HtmlWebpackPlugin({
             title: 'dashboard',
-            hask: true,
+            hash: true,
             chunks: ['dashboard'],
             filename: 'dashboard.html',
             template: './src/dashboard.html'
-        }),
+        })
         // new CleanWebpackPlugin(['dist'])
     ]
 };
