@@ -295,6 +295,14 @@ html, body {
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.photo:hover {
+    transition: filter 0.2s ease-in;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 ::-webkit-scrollbar {
