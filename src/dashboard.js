@@ -1,16 +1,16 @@
-require('./css/style.css');
-let $ = require('jquery');
+import './css/main.css'
+import $ from 'jquery';
 import ig from 'fetch-instagram';
 import { users } from 'fetch-instagram';
 
 //distance
-var slider = document.getElementById("myRange");
-var output = document.getElementById("dist");
+const slider = document.getElementById("myRange");
+const output = document.getElementById("dist");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
-}
+};
 
 //random color for users
 const generateRandomColor = () => {
@@ -30,13 +30,14 @@ const getShortUsername = () => {
   const username = document.getElementById('username').innerHTML;
   let firstName = username.split(' ')[0].charAt(0).toUpperCase();
   let lastName = username.split(' ')[1].charAt(0).toUpperCase();
-  let shortName = firstName + lastName;
-  return shortName;
-}
+  return firstName + lastName;
+};
+
 const user = getShortUsername();
 // console.log(user);
-var newNode = document.createElement("p");
-var textnode = document.createTextNode(user);
+
+const newNode = document.createElement("p");
+const textnode = document.createTextNode(user);
 newNode.appendChild(textnode);
 document.getElementById("circle").appendChild(newNode);
 
@@ -51,7 +52,7 @@ const instagram = ig({
   
 // users.then(res => console.log(res.json()));
 
-var url = 'https://api.instagram.com/v1/users/1441777407/media/recent/?access_token=1441777407.9157211.36ec49db6d5d46f9b59ab5c856609636';
+const url = 'https://api.instagram.com/v1/users/1441777407/media/recent/?access_token=1441777407.9157211.36ec49db6d5d46f9b59ab5c856609636';
 const getUser = (url,callback) => {
     $.ajax({
       url: url,
@@ -70,14 +71,14 @@ const getUser = (url,callback) => {
 };
 
 getUser(url,(response) => {
-    var myNode = document.getElementById('photos');
-    for(var i=0;i<response.data.length;i++){  
+    const myNode = document.getElementById('photos');
+    for(let i=0; i<response.data.length; i++){
       //console.log(response.data[i].images.standard_resolution.url);
-      var newNode = document.createElement('div');
+      let newNode = document.createElement('div');
       newNode.className = 'photo';
-      var imgChild = document.createElement("img");
+      let imgChild = document.createElement("img");
       imgChild.setAttribute('src', response.data[i].images.standard_resolution.url);
-      var alt = 'photo'+ i;
+      let alt = 'photo' + i;
       imgChild.setAttribute('alt', alt);
       imgChild.setAttribute('height', '200px');
       imgChild.setAttribute('width', '170px');
