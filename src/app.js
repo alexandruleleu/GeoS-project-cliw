@@ -1,5 +1,5 @@
-require('./css/main.css');
-require('./css/index.css');
+import './css/main.css';
+import './css/index.css';
 
 import people from './js/people';
 // let $ = require('jquery');
