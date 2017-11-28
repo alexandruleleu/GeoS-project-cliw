@@ -8,6 +8,11 @@ html, body {
     font-weight: 100;
 }
 
+.dashboard-container {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
 .navbar {
     position: relative;
     height: 60px;
@@ -21,46 +26,44 @@ html, body {
 }
 
 .navbar-logo {
-    margin-left: 30px;
+    margin-left: 32px;
     text-decoration: none;
-    color: #777777;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
 }
 
 .bold {
     color: #E10970;
+    font-weight: 300;
 }
 
 .user-profile {
-    margin-right: 20px;
-    width: auto;
+    padding-right: 16px;
     height: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .user-profile:hover {
-    background-color: rgb(208, 207, 207);
+    background-color: #F5F5F5;
+    transition: background-color 0.2s ease-in;
 }
 
 .user-profile p {
     padding-left: 10px;
     margin-right: 5px;
     font-size: 14px;
-    color: #535050;
-    font-weight: bold;
-
 }
 
 #circle {
     width: 45px;
     height: 45px;
-    background-color: rgb(228, 201, 236);
+    background-color: #E10970;
+    color: white;
+    font-weight: 300;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-    border: 1px solid #777777;
     margin-left: 5px;
     display: flex;
     justify-content: center;
@@ -69,7 +72,7 @@ html, body {
 
 #circle p {
     font-size: 18px;
-    padding-left: 0px;
+    padding-left: 0;
     margin-left: 5px;
 }
 
@@ -116,6 +119,10 @@ html, body {
     margin-top: 35px;
 }
 
+.distance {
+    width: 55%;
+}
+
 .group {
     position: relative;
     margin-bottom: 45px;
@@ -123,7 +130,7 @@ html, body {
 
 .group input {
     font-size: 16px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px 0 10px 5px;
     width: 27vw;
     border: none;
     border-bottom: 1.2px solid #757575;
@@ -137,7 +144,6 @@ html, body {
 .group label {
     color: rgb(125, 117, 117);
     font-size: 18px;
-    font-weight: bold;
     position: absolute;
     pointer-events: none;
     left: 5px;
@@ -150,11 +156,7 @@ html, body {
 .group input:focus ~ label, .group input:valid ~ label {
     top: -20px;
     font-size: 15px;
-    color: #5264AE;
-}
-
-.bar {
-    width: 27vw;
+    color: #E10970;
 }
 
 .bar:before, .bar:after {
@@ -163,7 +165,7 @@ html, body {
     width: 0;
     bottom: 1px;
     position: absolute;
-    background: #5264AE;
+    background: #E10970;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -240,7 +242,7 @@ html, body {
 }
 
 #slidecontainer {
-    width: 28vw;
+    width: 100%;
 }
 
 .slider {
@@ -263,21 +265,18 @@ html, body {
 }
 
 #dist-name {
-    font-weight: bold;
     font-size: 18px;
-    color: rgb(125, 117, 117);
+    color: #535050;
 }
 
 #dist-value {
-    font-weight: bold;
     font-size: 14px;
-    color: rgb(0, 0, 0);
+    color: #535050;
 }
 
 #dist {
-    font-weight: bold;
-    font-size: 14px;
-    color: rgb(0, 0, 0);
+    font-size: 16px;
+    color: #E10970;
 }
 
 #photos {
@@ -315,6 +314,11 @@ html, body {
 
 /* layout for phone */
 @media only screen and (max-width: 510px) {
+
+    .location, .distance {
+        width: 80%;
+    }
+
     .content {
         flex-direction: column;
     }
@@ -330,12 +334,9 @@ html, body {
     }
 
     .group input {
-        width: 40vw;
+        width: 100%;
     }
 
-    #slidecontainer {
-        width: 45vw;
-    }
 }
 
 #infowindow-content .title {
