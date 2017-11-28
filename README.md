@@ -1,4 +1,4 @@
 # GeoS-project-cliw
 
 - Current pages:
-    login, dashboard
+    login and dashboard
