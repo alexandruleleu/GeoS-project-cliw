@@ -1,0 +1,133 @@
+/*FOR LOGIN PAGE*/
+
+
+.login-container {
+    height: 100%;
+    position: relative;
+    text-align: center;
+    padding-top: 100px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    background-color: #F5F5F5;
+}
+
+.login-box {
+    text-align: left;
+    width: 320px;
+    margin: 0 auto;
+}
+
+.login-content {
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    background-color: white;
+}
+
+.login-header {
+    padding-bottom: 16px;
+    font-size: 32px;
+    color: #E10970;
+}
+
+.input-group {
+    position: relative;
+    width: 98%;
+    text-align: left;
+    padding-bottom: 16px;
+}
+
+.input-field-name {
+    padding-bottom: 8px;
+}
+
+.input-field {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    border: 0.5px solid #d5d5d5;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+.input-field:focus {
+    border: 0.5px solid #E10970;
+    outline: 0;
+}
+
+
+a.forgot-password-link{
+     font-size: 14px;
+     color: #535050;
+ }
+
+a.forgot-password-link:focus{
+    color: #535050;
+}
+
+a.forgot-password-link:active{
+    font-size: 14px;
+    color: #535050;
+}
+
+a.forgot-password-link:visited{
+    font-size: 14px;
+    color: #535050;
+}
+
+.button {
+    margin-top: 16px;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background-color: #cf0867;
+    transition: background-color 0.2s ease-in;
+}
+
+.button a {
+    line-height: 40px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.button a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.button a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+.button a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.button.login-button {
+    background-color: #E10970;
+    color: white;
+}
+
+.button.register-button {
+    border: 1px solid #aaaaaa;
+    background-color: transparent;
+}
+
+.separator {
+    margin: 16px 0;
+    border: 1px solid #F5F5F5;
+    width: 100%;
+}
+
+@media screen and (max-width: 510px) {
+    .login-box {
+        width: 90%;
+    }
+}

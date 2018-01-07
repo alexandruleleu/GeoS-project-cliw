@@ -1,7 +1,7 @@
-require('./css/style.css');
+import './css/main.css';
+import './css/index.css';
 
-
-let people = require('./js/people.js');
+import people from './js/people';
 // let $ = require('jquery');
 
 function Display(){
