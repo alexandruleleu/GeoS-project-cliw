@@ -1,15 +1,15 @@
 /*FOR DASHBOARD PAGE*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 html, body {
     margin: 0;
     width: 100%;
     height: 100%;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
+    font-family: 'Roboto', sans-serif;
 }
 
 .dashboard-container {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
 }
 
@@ -289,9 +289,13 @@ html, body {
 }
 
 .photo {
-    height: 200px;
+    height: 260px;
     width: 170px;
-    /* border: 1px solid #777777;  */
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid #d0cdcd;
+    background-color: white;
+
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -303,6 +307,88 @@ html, body {
     transition: filter 0.2s ease-in;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+}
+
+#photo-img {
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 200px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(123, 119, 119);
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.modal-content h3 {
+    text-align: center;
+    text-transform: capitalize;
+}
+.close {
+    color: black;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #E10970;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-transform: capitalize;
+    overflow: auto;
+    max-height: 550px;
+}
+
+#modal-img {
+    width: 280px;
+}
+
+#modal-img img {
+    width: 100%;
+}
+
+#modal-info {
+    padding-top: 10px;
+    width: 320px;
+}
+
+#modal-info p{
+    word-wrap: break-word;
+    width: 100%;
+}
+
+.photo--content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.photo--content p {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
 }
 
 ::-webkit-scrollbar {
@@ -359,3 +445,54 @@ html, body {
     display: inline;
 }
 
+
+/* marker */
+.marker-content{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 100%;
+}
+
+#marker-photos{
+    height: 100%;
+}
+
+.marker-btn-left {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%,-50%);
+    border: none;
+    display: inline-block;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.marker-btn-right {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%,-50%);
+    border: none;
+    padding: 3px 10px;
+    cursor: pointer;
+}
+
+.instagram-button {
+    margin-right: 10px;
+    align-self: flex-end;
+}
+
+.instagram-button img {
+    cursor: pointer;
+}
