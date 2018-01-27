@@ -1,9 +1,9 @@
-import './css/main.css'
+import '../../css/main.css'
 import $ from 'jquery';
 import ig from 'fetch-instagram';
 import { users } from 'fetch-instagram';
-require('./js/500px');
-
+import getUserDetails from '../../js/currentUser';
+require('../../js/500px');
 
 //service-worker
 if ('serviceWorker' in navigator) {
@@ -53,38 +53,7 @@ const searchPhotosByDistance = (e,data) => {
   inputValues.distance = DISTANCE;
   e.keyCode = 13;
   searchPhotosByLocation(e);
-}
-
-
-//random color for users
-const generateRandomColor = () => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
 };
-
-// var userIcon = document.getElementById('circle');
-// userIcon.style.backgroundColor = generateRandomColor();
-
-//short username
-const getShortUsername = () => {
-  const username = document.getElementById('username').innerHTML;
-  let firstName = username.split(' ')[0].charAt(0).toUpperCase();
-  let lastName = username.split(' ')[1].charAt(0).toUpperCase();
-  return firstName + lastName;
-};
-
-const user = getShortUsername();
-// console.log(user);
-
-const newNode = document.createElement("p");
-const textnode = document.createTextNode(user);
-newNode.appendChild(textnode);
-document.getElementById("circle").appendChild(newNode);
-
 
 // GOOGLE MAPS!!!!
 
@@ -308,13 +277,16 @@ function searchPhotosByLocation(e) {
 }
 
 window.onload = () => {
+    const userDetails = getUserDetails(localStorage.getItem('username'));
+    document.getElementById('username').innerHTML = userDetails.name;
+    document.getElementById('circle').innerHTML = userDetails.initials;
   if(localStorage.getItem("input-location")) {
     var myNode = document.getElementById('photos');
     var myMarker = document.getElementById('marker-photos');
 
     let location = localStorage.getItem("input-location");
     let distance = localStorage.getItem("input-distance");
-    console.log(location);
+
     let index = 0;
     for(let d=1; d<=distance; d++) {
       _500px.api('/photos/search', { term: location, image_size: 3, page: d}, function (response) {

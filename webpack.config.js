@@ -4,8 +4,8 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/app.js',
-        dashboard: './src/dashboard.js'
+        dashboard: './src/pages/dashboard/dashboard.js',
+        login: './src/pages/login/login.js'
     },
     output: {
         path: path.resolve(__dirname, '/dist'),
@@ -15,14 +15,11 @@ module.exports = {
     module:{
         loaders:[
             {
-                test: [/\.js$/],
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query:{
-                    presets: ['es2015']
-                }
+                test: /\.js$/,
+                exclude: [/node_modules/],
+                loader: 'babel',
+                include: path.resolve(__dirname, '/dist')
             },
-           
         ],
         rules:[
             {
@@ -64,17 +61,20 @@ module.exports = {
      
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'index',
-            hash: true,
-            excludeChunks: ['dashboard'], 
-            template: './src/index.html'
+            title: 'login',
+            filename: 'login.html',
+            excludeChunks: ['dashboard'],
+            chunks: ['login'],
+            template: './src/pages/login/login.html',
+            inject: 'body'
         }),
         new HtmlWebpackPlugin({
             title: 'dashboard',
-            hash: true,
             chunks: ['dashboard'],
+            excludeChunks: ['login'],
             filename: 'dashboard.html',
-            template: './src/dashboard.html'
+            template: './src/pages/dashboard/dashboard.html',
+            inject: 'body'
         })
         // new CleanWebpackPlugin(['dist'])
     ]

@@ -9,11 +9,11 @@
 <body>
     <div class="dashboard-container">
         <div class="navbar">
-            <a class="navbar-logo" href="/dashboard.html">Geo<span class="bold">S</span>
+            <a class="navbar-logo">Geo<span class="bold">S</span>
             </a>
             <div class="user-profile">
                 <div id="circle"></div>
-                <p id="username">Leleu Alexandru</p>
+                <p id="username"></p>
             </div>
         </div>
         <div class="content">
@@ -38,17 +38,20 @@
                     <div class="location">    
                         <form>
                             <div class="group">      
-                                <input id="searchInput" type="text" onkeypress="searchPhotosByLocation(event)" placeholder="" required>
+                                <input id="searchInput" onkeypress="searchPhotosByLocation(event)" placeholder="" required>
                                 <span class="highlight"></span>
                                 <span class="bar"></span>
                                 <label>Location</label>
                             </div>
 
-                            <div class="group">      
-                                <input type="text" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Number of photos</label>
+                            <div class="group">
+                                <label>Date</label>
+                                <select class="dropdownElement">
+                                    <option class="option">This year</option>
+                                    <option class="option">2017</option>
+                                    <option class="option">2016</option>
+                                    <option class="option">2015</option>
+                                </select>
                             </div>
                         </form>
                         </div>

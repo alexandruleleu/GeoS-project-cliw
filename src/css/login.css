@@ -27,11 +27,12 @@
     padding-bottom: 16px;
     font-size: 32px;
     color: #E10970;
+    font-weight: 400;
 }
 
 .input-group {
     position: relative;
-    width: 98%;
+    width: 99%;
     text-align: left;
     padding-bottom: 16px;
 }
@@ -52,6 +53,14 @@
 .input-field:focus {
     border: 0.5px solid #E10970;
     outline: 0;
+}
+
+.input-error {
+    margin-bottom: 16px;
+    background-color: lavenderblush;
+    border: 1px solid #E10970;
+    padding: 12px;
+    font-size: 14px;
 }
 
 
@@ -80,32 +89,12 @@ a.forgot-password-link:visited{
     height: 40px;
     cursor: pointer;
     text-transform: uppercase;
+    line-height: 40px;
 }
 
 .button:hover {
     background-color: #cf0867;
     transition: background-color 0.2s ease-in;
-}
-
-.button a {
-    line-height: 40px;
-    color: inherit;
-    text-decoration: none;
-}
-
-.button a:active {
-    color: inherit;
-    text-decoration: none;
-}
-
-.button a:focus {
-    color: inherit;
-    text-decoration: none;
-}
-
-.button a:visited {
-    color: inherit;
-    text-decoration: none;
 }
 
 .button.login-button {
