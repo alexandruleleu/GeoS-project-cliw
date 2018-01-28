@@ -416,6 +416,12 @@
     border-radius: 7px;
 }
 
+@media only screen and (max-width: 1200px) {
+    .modal {
+        padding-top: 100px;
+    }
+}
+
 /* layout for phone */
 @media only screen and (max-width: 510px) {
 

@@ -240,33 +240,32 @@ _500px.init({
 //geo-location
 function searchPhotosByLocation(e) {
     let location = e ? document.getElementById("searchInput").value : localStorage.getItem('input-location');
+    if (e) {
+        console.log('yes');
+        location = location.split(',',1)[0];
+    }
+
+    localStorage.setItem("input-location", location);
+
     const myNode = document.getElementById('photos');
     const myMarker = document.getElementById('marker-photos');
 
     //remove previous photos
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.firstChild);
+    if (myNode.firstChild) {
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
     }
-    while (myMarker.firstChild) {
-      myMarker.removeChild(myMarker.firstChild);
+
+    if (myMarker.firstChild) {
+        while (myMarker.firstChild) {
+            myMarker.removeChild(myMarker.firstChild);
+        }
     }
+
     PHOTOS = [];
 
-    e ? location = location.split(',',1)[0] : null;
-
-    inputValues.location = location;
-    localStorage.setItem("input-location",inputValues.location);
-
     appendPhotos();
-}
-
-
-
-function searchPhotosByDate() {
-    const select = document.getElementById('year');
-    const option = select.options[select.selectedIndex].value;
-    localStorage.setItem('input-year', option);
-    searchPhotosByDistance();
 }
 
 const searchPhotosByDistance = (e,data) => {
@@ -291,17 +290,29 @@ const searchPhotosByDistance = (e,data) => {
     searchPhotosByLocation();
 };
 
+const findIndexSelect = () => {
+    const select = document.getElementById('year');
+    const selectedYear = localStorage.getItem('input-year');
+    for (let i = 0; i < select.children; i ++) {
+        if (select.options[i].value === selectedYear) {
+            select.selectedIndex = i;
+            select.options[i].selected = true;
+        }
+    }
+};
+
 
 window.onload = () => {
     const userDetails = getUserDetails(localStorage.getItem('username'));
     document.getElementById('username').innerHTML = userDetails.name;
     document.getElementById('circle').innerHTML = userDetails.initials;
-    document.getElementById('year').onchange = searchPhotosByDate;
+    document.getElementById('year').onchange = () => searchPhotosByDate(false);
 
     if (localStorage.getItem('input-location')) {
+        document.getElementById("searchInput").value = localStorage.getItem('input-location');
         if (localStorage.getItem('input-distance') !== 1) {
             if (localStorage.getItem('input-year')) {
-                searchPhotosByDate();
+                findIndexSelect();
             } else {
                 searchPhotosByDistance();
             }
@@ -309,7 +320,7 @@ window.onload = () => {
             searchPhotosByLocation();
         }
     }
-  };
+};
 
 //marker-carousel
 let slideIndex = 1;
