@@ -181,7 +181,7 @@ function appendPhotos() {
                     let divForLikes = document.createElement("div");
                     divForLikes.className = "likes-content";
                     let heartIcon = document.createElement("img");
-                    heartIcon.setAttribute('src', "/img/heart.png");
+                    heartIcon.setAttribute('src', "src/img/like.png");
                     let l = document.createElement('p');
                     l.innerHTML = likes;
                     divForLikes.appendChild(heartIcon);
