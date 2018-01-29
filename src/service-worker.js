@@ -2,13 +2,13 @@ var cacheName = 'v1';
 
 var cacheFiles = [
 	'./',
-	'./src/index.html',
+	'./src/login.html',
 	'./src/dashboard.html',
 	'./src/app.js',
 	'./src/dashboard.js',
 	'./src/js/500px.js',
-	'./css/index.css',
-	'./css/main.css',
+	'./css/login.css',
+	'./css/dashboard.css',
 	'./fonts/helvetica-neue.tff'
 ]
 

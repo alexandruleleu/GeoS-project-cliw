@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <title>GeoS App</title>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="navbar">
+            <a class="navbar-logo">
+                <svg style="width:30px;height:30px" viewBox="0 0 24 24">
+                    <path fill="#E10970" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+                </svg>
+                Geo
+                <span class="bold">S</span>
+            </a>
+
+            <div class="navbar-links">
+                <div class="user-profile">
+                    <div id="circle"></div>
+                    <p id="username"></p>
+                </div>
+                <div class="logout-link" onclick="window.location.pathname = '/login.html'">
+                    <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                        <path fill="#E10970" d="M14.08,15.59L16.67,13H7V11H16.67L14.08,8.41L15.5,7L20.5,12L15.5,17L14.08,15.59M19,3A2,2 0 0,1 21,5V9.67L19,7.67V5H5V19H19V16.33L21,14.33V19A2,2 0 0,1 19,21H5C3.89,21 3,20.1 3,19V5C3,3.89 3.89,3 5,3H19Z" />
+                    </svg>
+                    <span class="logout-text">Log out</span>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="map-canvas">
+                <div id="map"></div>
+                <div id="infowindow-content">
+                    <span id="place-name"  class="title"></span><br>
+                    <span id="place-address"></span>
+                    <br /> <br />
+                    <div class="marker-content">
+                        <div id="marker-photos">
+                            <img class="mySlides" src="/src/img/nature.png" alt="markerPhoto">
+                            
+                        </div>
+                        <button class="marker-btn-left" onclick="plusDivs(-1)">&#10094;</button>
+                        <button class="marker-btn-right" onclick="plusDivs(1)">&#10095;</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="sidebar">
+                <div class="fields">
+                    <div class="location">    
+                        <form>
+                            <div class="group">      
+                                <input id="searchInput" onchange="searchPhotosByLocation(event)" placeholder="" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Location</label>
+                            </div>
+
+                            <div class="dropdownGroup">
+                                <div class="dropdownLabel">Date</div>
+                                <select id="year" class="dropdownElement">
+                                    <option name="all">all</option>
+                                    <option name="2018">2018</option>
+                                    <option name="2017">2017</option>
+                                    <option name="2016">2016</option>
+                                    <option name="2015">2015</option>
+                                    <option name="2014">2014</option>
+                                    <option name="2013">2013</option>
+                                </select>
+                            </div>
+                        </form>
+                        </div>
+                        <div id="line">
+                        </div>
+                        <div class="distance">
+                            <div id="slidecontainer"> 
+                                <p id="dist-name">Distance</p>
+                                <input type="range" min="10" max="50" value="10" class="slider" id="myRange" onchange="searchPhotosByDistance(event,this.value)">
+                                <p id="dist-value">Value: <span id="dist"></span> km</p>
+                            </div>
+                        </div>
+                        <div class="instagram-button" onclick="searchPhotosInsta()">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                <path fill="#E10970" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+                            </svg>
+                        </div>
+
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeModal()" >&times;</span>
+                                <div class="modal-title" id="modal-img-name"></div>
+                                <div class="info">
+                                    <div id="modal-img"></div>
+                                    <div class="modal-info" id="modal-info">
+                                        <div class="line"><div class="label">Date: </div><span id="date"></span></div>
+                                        <div class="line"><div class="label">Camera: </div><span id="camera"></span></div>
+                                        <div class="line"><div class="label">Iso: </div> <span id="iso"></span></div>
+                                        <div class="line"><div class="label">Description: </div><span id="description"></span></div>
+                                    </div>
+                                </div>
+                            
+                            </div>  
+                        </div>
+                </div>  
+                <div id="photos">
+                        <!-- photos -->
+                </div>
+            </div> 
+        </div>
+    </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQG8prY5R4ss3MCI9Dq4hnZAOn5vAw7ng&libraries=places&callback=initMap" async defer></script>
+      
+</body>
+</html>

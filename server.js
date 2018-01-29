@@ -8,7 +8,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 
 var app = express();
 
-const indexPath = path.join(__dirname, './src/index.html')
+const indexPath = path.join(__dirname, './src/login.html')
 app.use(express.static(path.join(__dirname, 'dist')));
 app.get('/', function (_, res) {res.sendFile(indexPath) })
 app.set('port', process.env.PORT || 8080);
