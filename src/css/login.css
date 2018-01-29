@@ -38,7 +38,7 @@
 }
 
 .input-field-name {
-    padding-bottom: 8px;
+    padding-bottom: 4px;
 }
 
 .input-field {
@@ -53,6 +53,11 @@
 .input-field:focus {
     border: 0.5px solid #E10970;
     outline: 0;
+}
+
+.input-label {
+    position: relative;
+    bottom: 4px;
 }
 
 .input-error {

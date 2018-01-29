@@ -5,11 +5,13 @@ let users = {
 };
 
 const validateUser = (username, password) => {
-    return Object.keys(users).map((key) => {
+    let found = false;
+    Object.keys(users).map((key) => {
         if (username === key && password === users[key]) {
-            return true;
+            found = true;
         }
     });
+    return found;
 };
 
 export default validateUser;

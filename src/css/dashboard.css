@@ -10,7 +10,6 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     -webkit-box-shadow: 0 0 7px 0 rgba(161, 155, 161, 1);
     -moz-box-shadow: 0 0 7px 0 rgba(161, 155, 161, 1);
     box-shadow: 0 0 7px 0 rgba(161, 155, 161, 1);
@@ -19,7 +18,29 @@
 .navbar-logo {
     margin-left: 32px;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 30px;
+}
+
+.logout-link {
+    padding: 0 16px;
+    border-left: 1px solid #E10970;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-text {
+    position: relative;
+    bottom: 6px;
+    padding-left: 4px;
+}
+
+
+.navbar-links {
+    display: flex;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    align-items: center;
 }
 
 .bold {
@@ -179,6 +200,11 @@
     background-color: white;
     outline: 0;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdownElement:hover {
+    border: 1px solid lightcoral;
 }
 
 .bar:before {
@@ -345,15 +371,21 @@
     border-radius: 5px;
 }
 
-.modal-content h3 {
-    text-align: center;
-    text-transform: capitalize;
+.modal-title {
+    font-weight: 300;
+    font-size: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E10970;
+    margin-bottom: 16px;
 }
+
 .close {
+    position: relative;
+    bottom: 20px;
+    left: 5px;
     color: black;
     float: right;
     font-size: 30px;
-    font-weight: bold;
 }
 
 .close:hover,
@@ -365,8 +397,6 @@
 
 .info {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
     text-transform: capitalize;
     overflow: auto;
     max-height: 550px;
@@ -374,31 +404,40 @@
 
 #modal-img {
     width: 280px;
+    margin-right: 32px;
 }
 
 #modal-img img {
     width: 100%;
 }
 
-#modal-info {
-    padding-top: 10px;
-    width: 320px;
+.modal-info {
+    padding-top: 16px;
 }
 
-#modal-info p{
-    word-wrap: break-word;
-    width: 100%;
+.line {
+    padding: 4px 0;
+    display: flex;
+}
+
+.label {
+    width: 90px;
+    font-weight: 400;
 }
 
 .photo--content {
     display: flex;
-    justify-content: space-around;
+    text-align: center;
 }
 
 .photo--content p {
     margin: 0;
     font-size: 16px;
     text-align: center;
+}
+
+.likes-content, .comm-content {
+    width: 50%;
 }
 
 ::-webkit-scrollbar {
@@ -418,7 +457,17 @@
 
 @media only screen and (max-width: 1200px) {
     .modal {
-        padding-top: 100px;
+        padding-top: 80px;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .info {
+        display: block;
     }
 }
 
@@ -451,6 +500,10 @@
         width: 100%;
     }
 
+
+    .modal {
+        padding-top: 50px;
+    }
 }
 
 #infowindow-content .title {
@@ -511,8 +564,8 @@
 .instagram-button {
     margin-right: 10px;
     align-self: flex-end;
-}
-
-.instagram-button img {
     cursor: pointer;
 }
+
+
+

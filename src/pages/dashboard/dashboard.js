@@ -172,7 +172,7 @@ function appendPhotos() {
                     let divForComm = document.createElement("div");
                     divForComm.className = "comm-content";
                     let commIcon = document.createElement("img");
-                    commIcon.setAttribute('src', "/src/img/comm.png");
+                    commIcon.setAttribute('src', "src/img/comm.png");
                     let comm = document.createElement('p');
                     comm.innerHTML = comments_count;
                     divForComm.appendChild(commIcon);
@@ -181,7 +181,7 @@ function appendPhotos() {
                     let divForLikes = document.createElement("div");
                     divForLikes.className = "likes-content";
                     let heartIcon = document.createElement("img");
-                    heartIcon.setAttribute('src', "/src/img/heart.png");
+                    heartIcon.setAttribute('src', "/img/heart.png");
                     let l = document.createElement('p');
                     l.innerHTML = likes;
                     divForLikes.appendChild(heartIcon);
@@ -290,16 +290,14 @@ const searchPhotosByDistance = (e,data) => {
     searchPhotosByLocation();
 };
 
-const findIndexSelect = () => {
+function searchPhotosByDate(flag) {
     const select = document.getElementById('year');
-    const selectedYear = localStorage.getItem('input-year');
-    for (let i = 0; i < select.children; i ++) {
-        if (select.options[i].value === selectedYear) {
-            select.selectedIndex = i;
-            select.options[i].selected = true;
-        }
+    const option = select.options[select.selectedIndex].value;
+    if(!flag) {
+        localStorage.setItem('input-year', option);
     }
-};
+    searchPhotosByDistance();
+}
 
 
 window.onload = () => {
@@ -312,7 +310,7 @@ window.onload = () => {
         document.getElementById("searchInput").value = localStorage.getItem('input-location');
         if (localStorage.getItem('input-distance') !== 1) {
             if (localStorage.getItem('input-year')) {
-                findIndexSelect();
+                searchPhotosByDate(true);
             } else {
                 searchPhotosByDistance();
             }
